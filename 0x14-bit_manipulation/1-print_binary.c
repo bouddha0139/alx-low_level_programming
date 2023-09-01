@@ -1,16 +1,13 @@
-#include "main.h"
-
-/**
- * print_binary - Prints the binary representation of a number.
- * @n: The number to be printed in binary.
- */
 void print_binary(unsigned long int n)
 {
-    unsigned long int mask = 1; /* Initialize a mask with the rightmost bit set */
+	/* Check if the number is greater than 1. */
+	if (n > 1)
+	{
+		/* Print the binary representation of the number divided by 2. */
+		print_binary(n >> 1);
+	}
 
-    if (n > 1)
-        print_binary(n >> 1);
-
-    _putchar((n & mask) + '0');
+	/* Print the least significant bit of the number. */
+	_putchar((n & 1) + '0');
 }
 
