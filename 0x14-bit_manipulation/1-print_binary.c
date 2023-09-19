@@ -1,13 +1,27 @@
+#include "main.h"
+
+/**
+ * print_binary - prints the binary equivalent of a decimal number
+ * @n: number to print in binary
+ */
 void print_binary(unsigned long int n)
 {
-	/* Check if the number is greater than 1. */
-	if (n > 1)
-	{
-		/* Print the binary representation of the number divided by 2. */
-		print_binary(n >> 1);
-	}
+	int i, count = 0;
+	unsigned long int current;
 
-	/* Print the least significant bit of the number. */
-	_putchar((n & 1) + '0');
+	for (i = 63; i >= 0; i--)
+	{
+		current = n >> i;
+
+		if (current & 1)
+		{
+			_putchar('1');
+			count++;
+		}
+		else if (count)
+			_putchar('0');
+	}
+	if (!count)
+		_putchar('0');
 }
 
